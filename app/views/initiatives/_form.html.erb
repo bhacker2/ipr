@@ -1,0 +1,45 @@
+<%= form_for @initiative, :html => { :class => "form-horizontal initiative" } do |f| %>
+
+    <% if @initiative.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@initiative.errors.count, "error") %> prohibited this initiative from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @initiative.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@initiative[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :priority, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :priority, :class => 'form-control' %>
+    </div>
+    <%= error_span(@initiative[:priority]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :business_area_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :business_area_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@initiative[:business_area_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            initiatives_path, :class => 'btn btn-default' %>
+
+<% end %>

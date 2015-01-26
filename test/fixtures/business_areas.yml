@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: Finance
+  director: General Dollar
+
+two:
+  id: 2
+  name: Warehouse Management
+  director: Hugh Low
+
+three:
+  id: 5
+  name: Human Resources
+  director: Hyre Foples

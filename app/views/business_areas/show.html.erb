@@ -1,0 +1,46 @@
+<%- model_class = BusinessArea -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @business_area.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:director) %>:</strong></dt>
+  <dd><%= @business_area.director %></dd>
+</dl>
+
+<h4>
+     Initiatives
+  
+</h4>
+
+<% if @business_area.initiatives.size > 0 %>
+  <table class="table table-striped table-condensed">
+    
+		<thead>
+			<tr>
+				<th> </th>
+				<th>Priority</th>
+				<th>Name</th>
+				<th># of IPRs</th>
+			</tr>
+    </thead>
+    <tbody>
+      <%= render partial: "initiatives/initiative", collection: @business_area.initiatives %>
+		</tbody>
+	</table>
+<% else %>
+	<p>No initiatives defined</p>
+<% end %>
+
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              business_areas_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_business_area_path(@business_area), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              business_area_path(@business_area),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

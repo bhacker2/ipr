@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: 2015 Accounting upgrades
+  priority: 1
+  business_area_id: 1
+
+two:
+  id: 2
+  name: Upgrade Finance App Servers
+  priority: 5
+  business_area_id: 1
+
+three:
+  id: 3
+  name: Warehouse Server Refresh
+  priority: 5
+  business_area_id: 2

@@ -1,0 +1,2 @@
+module ImpactedApplicationHelper
+end
